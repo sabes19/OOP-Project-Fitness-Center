@@ -1,0 +1,37 @@
+Create a Class - members
+	ID and name, club
+	abstract method void CheckIn(club club)
+	int join date/time of membership
+
+singleClubMember class
+
+MultiClubMember class 
+	prop to hold membership points
+
+Club class
+	dictionary - name (key) and address (value)
+	methods to add/remove members
+	method to check in (w/ tri-catch)
+	method to generate bill of fees
+		list of fees
+		tuple
+			signle club member fees
+			multi-club fee
+			cleaning fee
+			processing fee
+			tanning fee
+
+Main class
+	select a club
+	general fuctions
+
+Optional
+NewYearsResolution, DateTime library
+if Month is not Jan/Feb you dont receive a discount
+
+
+Out Pizza the Hut - ConsoleWriteLine("Give up and out pizza the hut?")
+option in main to select "no" and give up/get fat
+
+store info in text file 
+google how to drop info into text cells

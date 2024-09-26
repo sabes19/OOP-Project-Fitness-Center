@@ -1,4 +1,5 @@
-﻿namespace OOP_Project_Fitness_Center
+﻿
+namespace OOP_Project_Fitness_Center
 {
     internal class Program
     {

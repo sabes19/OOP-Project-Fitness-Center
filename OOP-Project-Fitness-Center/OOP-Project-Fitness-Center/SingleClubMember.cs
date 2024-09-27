@@ -11,5 +11,10 @@ namespace OOP_Project_Fitness_Center
         public Club Club { get; set; }   // assign member a club
      
         public SingleClubMember(int ID, string Name) : base(ID, Name) { }
+
+        public override void CheckIn(Club club)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

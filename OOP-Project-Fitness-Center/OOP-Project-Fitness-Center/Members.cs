@@ -12,20 +12,18 @@ namespace OOP_Project_Fitness_Center
         // properties of the Members class that will be inherited by SingleClubMember and MultiClubMember
         public int ID               { get; set; }   // member ID
         public string Name          { get; set; }   // Member name
-        public string JoinDateTime  { get; set; }   // stores date time as an integer to be used for membership fee calculation later
+        //public string JoinDateTime  { get; set; }   // stores date time as an integer to be used for membership fee calculation later
         public bool IsCheckedIn     { get; set; }   // Is the member checked in at a location
 
         // constructors
-        public Members(int id, string name, Club club, string joinDateTime)
+        public Members(int id, string name)
         {
             ID = id;
             Name = name;
-            Club = club;
-            JoinDateTime = joinDateTime;
         }
 
 
         // method - CheckIn
-        public abstract void CheckIn(string club);
+        public abstract void CheckIn(Club club);
     }
 }

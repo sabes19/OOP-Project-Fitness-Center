@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Project_Fitness_Center
 {
-    public class SingleClubMember : Members
+    public class SingleClubMember : Member
     {
         public Club Club { get; set; }   // assign member a club
      

@@ -8,13 +8,8 @@ namespace OOP_Project_Fitness_Center
 {
     public class Club
     {
-        private Dictionary<string, string> _clubs;
-
-        public Dictionary<string,string> Clubs
-        {
-            get {  return _clubs; }
-            set { _clubs = value; }
-        }
+        private static List<Member> _clubMembers = new List<Member>();
+        public Dictionary<string, string> Clubs { get; private set; }
         public Club()
         {
             Clubs = new Dictionary<string, string>
@@ -25,23 +20,29 @@ namespace OOP_Project_Fitness_Center
                 { "Fitness Center 4", "Chicago,IL" }
             };
         }
-        public void AddMember(string name, string address)
+
+        public static (int,string) GetMemberInfo()
         {
-                _clubs.Add(name, address);
+            Random rnd = new Random();
+            (int, string) memberInfo;
+
+            do
+            {
+                Console.Write("Please enter the new members name: ");
+                memberInfo.Item2 = Console.ReadLine();
+            } while (String.IsNullOrEmpty(memberInfo.Item2));
+
+            memberInfo.Item1 = rnd.Next(10000,100000);
+
+            return memberInfo;
         }
-        public void RemoveMember(string name)
+        public static void AddMember(Member member)
         {
-            try
-            {
-                _clubs.Remove(name);
-            }
-            catch (ArgumentNullException exception)
-            {
-                Console.WriteLine("-----------------------------------");
-                Console.WriteLine("Sorry but that member doesn't exist");
-                Console.WriteLine("Please enter a valid member name.");
-                Console.WriteLine("-----------------------------------");
-            }
+            _clubMembers.Add(member);
+        }
+        public static void RemoveMember(Member member)
+        {
+            _clubMembers.Remove(member);
         }
     }
 }

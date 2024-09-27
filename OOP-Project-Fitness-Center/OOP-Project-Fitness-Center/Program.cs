@@ -5,7 +5,7 @@ namespace OOP_Project_Fitness_Center
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
         }
     }
 }

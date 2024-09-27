@@ -1,20 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace OOP_Project_Fitness_Center
 {
-    public class SingleClubMember : Member
+    public class SingleClubMember : Members
     {
-        public Club Club { get; set; }   // assign member a club
+        public Club memberClub { get; set; }   // assign member a club
      
         public SingleClubMember(int ID, string Name) : base(ID, Name) { }
 
         public override void CheckIn(Club club)
         {
-            throw new NotImplementedException();
+            if (this.memberClub != club)
+            {
+                Console.WriteLine("------------------------------------");
+                throw new InvalidOperationException($"Member can not check in. Member is not assigned to this club.");
+                Console.WriteLine("------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine($"Member has successfully checked in.");
+                Console.WriteLine("------------------------------------");
+            }
         }
     }
 }

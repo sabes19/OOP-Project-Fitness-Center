@@ -17,9 +17,10 @@ namespace OOP_Project_Fitness_Center
         public override void CheckIn(Club memberClub)
         {
             MemberPoints += 10; // member points increase by 10
-            Console.WriteLine($"{Name} has checked into ___. {Name} has {MemberPoints} points."); // need to add club property, push by josh
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine($"{Name} has checked into {___}. {Name} has {MemberPoints} points."); // need to add club property, push by josh
+            Console.WriteLine("-----------------------------------");
             throw new NotImplementedException();
         }
-
     }
 }

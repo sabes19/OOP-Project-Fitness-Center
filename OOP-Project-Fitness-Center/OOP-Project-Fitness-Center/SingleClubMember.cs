@@ -9,6 +9,7 @@ namespace OOP_Project_Fitness_Center
      
         public SingleClubMember(int ID, string Name) : base(ID, Name) { }
 
+        // checkin Method
         public override void CheckIn(Club club)
         {
             if (this.memberClub != club)
@@ -24,5 +25,16 @@ namespace OOP_Project_Fitness_Center
                 Console.WriteLine("------------------------------------");
             }
         }
+
+        // Display Member info method
+        public override void DisplayMemberInfo()
+        {
+            Console.WriteLine($"Club ID: {ID}, Name: {Name}, Club: {club}");
+        }
+
+
+
+
+
     }
 }

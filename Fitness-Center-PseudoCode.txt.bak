@@ -4,11 +4,6 @@ Create a Class - members
 	int join date/time of membership
 
 singleClubMember class
-	variable that assigns them to a club
-	Checkin Method throws error if failed
-	
-	add private fields
-	
 
 MultiClubMember class 
 	prop to hold membership points
@@ -30,8 +25,6 @@ Main class
 	select a club
 	general fuctions
 
-parameter less constructor will need to be added to one of the classes
-
 Optional
 NewYearsResolution, DateTime library
 if Month is not Jan/Feb you dont receive a discount
@@ -42,8 +35,3 @@ option in main to select "no" and give up/get fat
 
 store info in text file 
 google how to drop info into text cells
-
-
-
-To do list
-

@@ -3,7 +3,7 @@
 
 namespace OOP_Project_Fitness_Center
 {
-    public class SingleClubMember : Member
+    public class SingleClubMember : Members
     {
         public Club memberClub { get; set; }   // assign member a club
      

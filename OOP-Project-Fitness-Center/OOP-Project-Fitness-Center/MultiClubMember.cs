@@ -3,7 +3,7 @@
 
 namespace OOP_Project_Fitness_Center
 {
-    public class MultiClubMember : Member
+    public class MultiClubMember : Members
     {
         public int MemberPoints { get; set; }
         public MultiClubMember(int ID, string name) : base(ID, name) 

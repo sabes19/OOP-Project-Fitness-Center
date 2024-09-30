@@ -4,7 +4,7 @@
 namespace OOP_Project_Fitness_Center
 {
     // Member class
-    public abstract class Member
+    public abstract class Members
     {
         // properties of the Members class that will be inherited by SingleClubMember and MultiClubMember
         public int ID               { get; set; }   // member ID
@@ -15,7 +15,7 @@ namespace OOP_Project_Fitness_Center
         public bool IsCheckedIn { get; set; } = false;   // Is the member checked in at a location, already initialized to not checked in
 
         // constructors
-        public Member(int id, string name)
+        public Members(int id, string name)
         {
             ID = id;
             Name = name;

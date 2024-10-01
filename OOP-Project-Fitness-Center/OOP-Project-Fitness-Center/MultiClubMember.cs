@@ -6,8 +6,8 @@ namespace OOP_Project_Fitness_Center
     public class MultiClubMember : Members
     {
         public int MemberPoints { get; set; }
-        public MultiClubMember(int ID, string name) : base(ID, name) 
-        { 
+        public MultiClubMember(int ID, string name) : base(ID, name)
+        {
             MemberPoints = 0;
         }
 
@@ -22,5 +22,19 @@ namespace OOP_Project_Fitness_Center
             Console.WriteLine("-----------------------------------");
             throw new NotImplementedException();
         }
+
+        public override void DisplayMemberInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GenerateBill()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+
+
+// construcors built 
+// 

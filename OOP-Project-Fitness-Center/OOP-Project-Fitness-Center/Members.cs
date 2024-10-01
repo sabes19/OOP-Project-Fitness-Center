@@ -9,26 +9,37 @@ namespace OOP_Project_Fitness_Center
         // properties of the Members class that will be inherited by SingleClubMember and MultiClubMember
         private int _id;
         private string _name;
+        private bool _isMulticlubMember;
 
         public int ID               
         {
-            get { return _id; } 
-            set 
-            { 
-                ``
-            }
-        }   // member ID
-        public string Name          { get; set; }   // Member name
-        
-        //public string JoinDateTime  { get; set; }   // stores date time as an integer to be used for membership fee calculation later
-        
-        public bool IsCheckedIn { get; set; } = false;   // Is the member checked in at a location, already initialized to not checked in
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        public bool IsMulticlubMember
+        {
+            get { return _isMulticlubMember; }
+            set { _isMulticlubMember = value; }
+        }
+                public bool IsCheckedIn { get; set; } = false;   // Is the member checked in at a location, already initialized to not checked in
 
         // constructors
-        public Members(int id, string name)
+        public Members(int id, string name, bool isMulticlubMember)
         {
-            ID = id;
-            Name = name;
+            _id = id;
+            _name = name;
+            _isMulticlubMember = isMulticlubMember; 
+        }
+
+        protected Members(int iD, string name)
+        {
+            ID=iD;
+            Name=name;
         }
 
 

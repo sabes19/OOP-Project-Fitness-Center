@@ -8,8 +8,6 @@ namespace OOP_Project_Fitness_Center
 {
     public class Club
     {
-        private static List<Members> _clubMembers = new List<Members>();
-
         private string _name;
         private string _address;
         public string Name
@@ -22,10 +20,10 @@ namespace OOP_Project_Fitness_Center
             get { return _address; }
             set { _address = value; }
         }
-        public Club()
+        public Club(string name, string address)
         {
-            _name = Name;
-            _address = Address;
+            _name = name;
+            _address = address;
         }
         public static (int,string) GetMemberInfo()
         {
@@ -39,15 +37,6 @@ namespace OOP_Project_Fitness_Center
 
             return (rnd.Next(10000, 100000), memberName);
         }
-        public static void AddMember(Members member)
-        {
-            _clubMembers.Add(member);
-        }
-        public static void RemoveMember(Members member)
-        {
-            _clubMembers.Remove(member);
-        }
-
         public string GetName()
         {
             return _name;

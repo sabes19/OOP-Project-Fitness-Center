@@ -7,7 +7,17 @@ namespace OOP_Project_Fitness_Center
     public abstract class Members
     {
         // properties of the Members class that will be inherited by SingleClubMember and MultiClubMember
-        public int ID               { get; set; }   // member ID
+        private int _id;
+        private string _name;
+
+        public int ID               
+        {
+            get { return _id; } 
+            set 
+            { 
+                ``
+            }
+        }   // member ID
         public string Name          { get; set; }   // Member name
         
         //public string JoinDateTime  { get; set; }   // stores date time as an integer to be used for membership fee calculation later

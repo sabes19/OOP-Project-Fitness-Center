@@ -1,10 +1,8 @@
 ﻿using System;
 
-
 namespace OOP_Project_Fitness_Center
 {
-    // Member class
-    public abstract class Members
+    public abstract class Member
     {
         // properties of the Members class that will be inherited by SingleClubMember and MultiClubMember
         private int _id;
@@ -26,32 +24,14 @@ namespace OOP_Project_Fitness_Center
             get { return _isMulticlubMember; }
             set { _isMulticlubMember = value; }
         }
-                public bool IsCheckedIn { get; set; } = false;   // Is the member checked in at a location, already initialized to not checked in
-
-        // constructors
-        public Members(int id, string name, bool isMulticlubMember)
+        public bool IsCheckedIn { get; set; } = false;
+        public Member(int id, string name, bool isMulticlubMember)
         {
             _id = id;
             _name = name;
             _isMulticlubMember = isMulticlubMember; 
         }
-
-        protected Members(int iD, string name)
-        {
-            ID=iD;
-            Name=name;
-        }
-
-
-        // method to display member info
-        public abstract void DisplayMemberInfo();
-
-
-        // method to generate bill
-        public abstract void GenerateBill();
-
-
-        // method - CheckIn
+        public abstract void GenerateBill(int id);
         public abstract void CheckIn(Club memberClub);
     }
 }

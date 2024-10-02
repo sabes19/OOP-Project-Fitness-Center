@@ -1,30 +1,28 @@
 ﻿using System;
-using System.Xml.Linq;
-
 
 namespace OOP_Project_Fitness_Center
 {
-    public class SingleClubMember : Members
+    public class SingleClubMember : Member
     {
-        public Club memberClub { get; set; }   // assign member a club
-
-        public SingleClubMember(int ID, string Name) : base(ID, Name) { }
-
-        // checkin Method
+        private Club _memberClub;
+        public Club MemberClub
+        { 
+            get {  return _memberClub; }
+            set { _memberClub = value; }
+        }
+        public SingleClubMember(int ID, string Name, bool isMulticlubMember) : base(ID, Name, isMulticlubMember)
+        {
+            _memberClub = MemberClub;
+        }
         public override void CheckIn(Club club)
         {
-            if (this.memberClub != club)
-            Console.WriteLine("------------------------------------");
+            if (_memberClub != club)
+                Console.WriteLine("------------------------------------");
             Console.WriteLine($"Member has successfully checked in.");
             Console.WriteLine("------------------------------------");
         }
 
-        public override void DisplayMemberInfo()
-        {
-            Console.WriteLine($"Club ID: {ID}, Name: {Name}, Club: {_name}"); // do i have the wrong variable for _name?
-        }
-
-        public override void GenerateBill()
+        public override void GenerateBill(int id)
         {
             throw new NotImplementedException();
         }

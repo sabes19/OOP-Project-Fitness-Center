@@ -3,23 +3,22 @@ namespace OOP_Project_Fitness_Center
 {
     internal class Program
     {
-        static List<Members> memberList = new List<Members>();
+        static List<Member> memberList = new List<Member>();
         static List<Club> clubList = new List<Club>();
         static void Main(string[] args)
         {
             InitializeClubs();
-            DisplayMenu();
-            ExecuteMenuAction();
+            GetExecuteMenuAction();
             
         }
-        static void ExecuteMenuAction()
+        static void GetExecuteMenuAction()
         {
             bool isActiveLoop = true;
 
             while (isActiveLoop)
             {
+                DisplayMenu();
                 int userChoice = GetUserChoice();
-
                 switch (userChoice)
                 {
                     case 1:
@@ -42,7 +41,7 @@ namespace OOP_Project_Fitness_Center
                         break;
                     case 4:
                         {
-                            RemoveMember();
+                            RemoveMember(); // need to make sure the user enters a number between 1-6
                         }
                         break;
                     case 5: //Generate Bill
@@ -65,7 +64,7 @@ namespace OOP_Project_Fitness_Center
 
             memberList.RemoveAt(choice);
         }
-        static void DisplayMembers(List<Members> members)
+        static void DisplayMembers(List<Member> members)
         {
             for (int i = 0; i < members.Count; i++)
             {

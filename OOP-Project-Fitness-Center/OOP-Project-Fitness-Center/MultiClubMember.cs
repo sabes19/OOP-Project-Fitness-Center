@@ -1,40 +1,30 @@
 ﻿using System;
 
-
 namespace OOP_Project_Fitness_Center
 {
-    public class MultiClubMember : Members
+    public class MultiClubMember : Member
     {
-        public int MemberPoints { get; set; }
-        public MultiClubMember(int ID, string name) : base(ID, name)
-        {
-            MemberPoints = 0;
+        private int _memberPoints;
+        public int MemberPoints 
+        { 
+            get {  return _memberPoints; }
+            set { _memberPoints = value; }
         }
-
-        // Checkin Method for Multiclub members
-        // adds to MemberPoints
-
+        public MultiClubMember(int ID, string name, bool isMulticlubMember) : base(ID, name, isMulticlubMember)
+        {
+            _memberPoints = 0;
+        }
         public override void CheckIn(Club memberClub)
         {
             MemberPoints += 10; // member points increase by 10
             Console.WriteLine("-----------------------------------");
-            Console.WriteLine($"{Name} has checked into {___}. {Name} has {MemberPoints} points."); // need to add club property, push by josh
+            Console.WriteLine($"{Name} has checked into {memberClub}. {Name} has {MemberPoints} points."); // need to add club property, push by josh
             Console.WriteLine("-----------------------------------");
             throw new NotImplementedException();
         }
-
-        public override void DisplayMemberInfo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void GenerateBill()
+        public override void GenerateBill(int id)
         {
             throw new NotImplementedException();
         }
     }
 }
-
-
-// construcors built 
-// 

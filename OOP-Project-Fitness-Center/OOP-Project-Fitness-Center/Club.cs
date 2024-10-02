@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP_Project_Fitness_Center
 {
@@ -36,14 +32,6 @@ namespace OOP_Project_Fitness_Center
             } while (String.IsNullOrEmpty(memberName));
 
             return (rnd.Next(10000, 100000), memberName);
-        }
-        public string GetName()
-        {
-            return _name;
-        }
-        public string GetAdress()
-        {
-            return _address;
         }
     }
 }

@@ -22,10 +22,5 @@ namespace OOP_Project_Fitness_Center
             Console.WriteLine("-----------------------------------");
             throw new NotImplementedException();
         }
-
-        public override void GenerateBill()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

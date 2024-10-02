@@ -14,17 +14,18 @@ namespace OOP_Project_Fitness_Center
         {
             _memberClub = MemberClub;
         }
+
+        public SingleClubMember(int iD, string name) : base(iD, name)
+        {
+        }
+
         public override void CheckIn(Club club)
         {
             if (_memberClub != club)
-                Console.WriteLine("------------------------------------");
+            
+            Console.WriteLine("------------------------------------");
             Console.WriteLine($"Member has successfully checked in.");
             Console.WriteLine("------------------------------------");
-        }
-
-        public override void GenerateBill()
-        {
-            throw new NotImplementedException();
         }
     }
 }

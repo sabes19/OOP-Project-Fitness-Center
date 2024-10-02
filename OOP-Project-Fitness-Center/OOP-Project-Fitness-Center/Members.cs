@@ -28,7 +28,7 @@ namespace OOP_Project_Fitness_Center
         }
                 public bool IsCheckedIn { get; set; } = false;   // Is the member checked in at a location, already initialized to not checked in
 
-        // constructors
+        // constructor
         public Members(int id, string name, bool isMulticlubMember)
         {
             _id = id;
@@ -42,14 +42,8 @@ namespace OOP_Project_Fitness_Center
             Name=name;
         }
 
-
-        // method to display member info
-        public abstract void DisplayMemberInfo();
-
-
         // method to generate bill
         public abstract void GenerateBill();
-
 
         // method - CheckIn
         public abstract void CheckIn(Club memberClub);

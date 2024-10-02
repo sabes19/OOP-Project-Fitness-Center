@@ -19,11 +19,6 @@ namespace OOP_Project_Fitness_Center
             Console.WriteLine("------------------------------------");
         }
 
-        public override void DisplayMemberInfo()
-        {
-            Console.WriteLine($"Club ID: {ID}, Name: {Name}, Club: {_name}"); // do i have the wrong variable for _name?
-        }
-
         public override void GenerateBill()
         {
             throw new NotImplementedException();

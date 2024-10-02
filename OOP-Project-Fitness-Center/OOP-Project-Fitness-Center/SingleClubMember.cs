@@ -22,7 +22,7 @@ namespace OOP_Project_Fitness_Center
             Console.WriteLine("------------------------------------");
         }
 
-        public override void GenerateBill(int id)
+        public override void GenerateBill()
         {
             throw new NotImplementedException();
         }

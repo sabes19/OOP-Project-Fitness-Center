@@ -45,7 +45,7 @@ namespace OOP_Project_Fitness_Center
 
                             if(memberInfo.Item2 == true)
                             {
-                                fitnessCenter.AddMember(new MultiClubMember(fitnessCenter.GenerateRandomID(), memberInfo.Item1, true, 0));
+                                fitnessCenter.AddMember(new MultiClubMember(memberInfo.Item1, true, 0));
                             }
                             else
                             {
@@ -56,7 +56,7 @@ namespace OOP_Project_Fitness_Center
                                     clubChoice = fitnessCenter.GetUserChoice("Choose which club you want to be a member of: ") - 1;
                                     Console.Clear();
                                 } while (clubChoice < 0 || clubChoice >= 3);
-                                fitnessCenter.AddMember(new SingleClubMember(fitnessCenter.GenerateRandomID(), memberInfo.Item1, false, fitnessCenter.Clubs[clubChoice]));
+                                fitnessCenter.AddMember(new SingleClubMember(memberInfo.Item1, false, fitnessCenter.Clubs[clubChoice]));
                             }
                         }
                         break;

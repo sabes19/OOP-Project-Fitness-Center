@@ -15,27 +15,23 @@ namespace OOP_Project_Fitness_Center
             Clubs.Add(new Club("Fitness Center 3", "Pittsburgh,PA"));
             Clubs.Add(new Club("Fitness Center 4", "Charlotte,NC"));
         }
-        public int GenerateRandomID()
-        {
-            return rnd.Next(10000,100000);
-        }
         public void InitializeMembers()
         {
-            members.Add(new SingleClubMember(GenerateRandomID(), "Josh", false, Clubs[0]));
-            members.Add(new SingleClubMember(GenerateRandomID(), "Ryan", false, Clubs[2]));
-            members.Add(new SingleClubMember(GenerateRandomID(), "Kelly", false, Clubs[3]));
-            members.Add(new SingleClubMember(GenerateRandomID(), "James", false, Clubs[1]));
+            members.Add(new SingleClubMember("Josh", false, Clubs[0]));
+            members.Add(new SingleClubMember("Ryan", false, Clubs[2]));
+            members.Add(new SingleClubMember("Kelly", false, Clubs[3]));
+            members.Add(new SingleClubMember("James", false, Clubs[1]));
 
-            members.Add(new MultiClubMember(GenerateRandomID(), "Jamie", false, 30));
-            members.Add(new MultiClubMember(GenerateRandomID(), "Tyler", false, 100));
-            members.Add(new MultiClubMember(GenerateRandomID(), "Jackie", false, 60));
-            members.Add(new MultiClubMember(GenerateRandomID(), "Gerald", false, 0));
+            members.Add(new MultiClubMember("Jamie", false, 30));
+            members.Add(new MultiClubMember("Tyler", false, 100));
+            members.Add(new MultiClubMember("Jackie", false, 60));
+            members.Add(new MultiClubMember("Gerald", false, 0));
         }
         public void DisplayMenu()
         {
             Console.WriteLine("----- Fitness Center Management System -----");
             Console.WriteLine("1. Display Members");
-            Console.WriteLine("2. Check In Member");
+            Console.WriteLine("2. Check-in Member");
             Console.WriteLine("3. Add Member");
             Console.WriteLine("4. Remove Member");
             Console.WriteLine("5. Generate Bill");
@@ -116,6 +112,7 @@ namespace OOP_Project_Fitness_Center
                 memberType = GetUserChoice("Please choose the member type (1 or 2): ");
                 Console.Clear();
             } while (memberType != 1 && memberType != 2);
+
             if (memberType == 1)
             {
                 return (name, true);

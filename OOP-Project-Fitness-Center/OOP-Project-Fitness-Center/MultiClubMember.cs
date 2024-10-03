@@ -10,22 +10,16 @@ namespace OOP_Project_Fitness_Center
             get {  return _memberPoints; }
             set { _memberPoints = value; }
         }
-        public MultiClubMember(int ID, string name, bool isMulticlubMember) : base(ID, name, isMulticlubMember)
+        public MultiClubMember(int ID, string name, bool isMulticlubMember, int memberPoints) : base(ID, name, isMulticlubMember)
         {
-            _memberPoints = 0;
+            _memberPoints = memberPoints;
         }
         public override void CheckIn(Club memberClub)
         {
-            MemberPoints += 10; // member points increase by 10
+            _memberPoints += 10;
             Console.WriteLine("-----------------------------------");
-            Console.WriteLine($"{Name} has checked into {memberClub}. {Name} has {MemberPoints} points."); // need to add club property, push by josh
+            Console.WriteLine($"{Name} has checked into {memberClub.Name}. {Name} has {_memberPoints} points."); // need to add club property, push by josh
             Console.WriteLine("-----------------------------------");
-            throw new NotImplementedException();
-        }
-
-        public override void GenerateBill()
-        {
-            throw new NotImplementedException();
         }
     }
 }

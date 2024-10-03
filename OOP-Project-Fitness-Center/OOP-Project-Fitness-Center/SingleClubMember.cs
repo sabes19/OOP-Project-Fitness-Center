@@ -10,21 +10,18 @@ namespace OOP_Project_Fitness_Center
             get {  return _memberClub; }
             set { _memberClub = value; }
         }
-        public SingleClubMember(int ID, string Name, bool isMulticlubMember) : base(ID, Name, isMulticlubMember)
+        public SingleClubMember(int ID, string Name, bool isMulticlubMember, Club memberClub) : base(ID, Name, isMulticlubMember)
         {
-            _memberClub = MemberClub;
+            _memberClub = memberClub;
         }
         public override void CheckIn(Club club)
         {
             if (_memberClub != club)
+            {
                 Console.WriteLine("------------------------------------");
-            Console.WriteLine($"Member has successfully checked in.");
-            Console.WriteLine("------------------------------------");
-        }
-
-        public override void GenerateBill()
-        {
-            throw new NotImplementedException();
+                Console.WriteLine($"Member has successfully checked in.");
+                Console.WriteLine("------------------------------------");
+            }
         }
     }
 }

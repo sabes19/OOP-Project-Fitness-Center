@@ -3,50 +3,74 @@ namespace OOP_Project_Fitness_Center
 {
     internal class Program
     {
-        static List<Member> memberList = new List<Member>();
-        static List<Club> clubList = new List<Club>();
         static void Main(string[] args)
         {
-            InitializeClubs();
-            GetExecuteMenuAction();
-            
-        }
-        static void GetExecuteMenuAction()
-        {
+            FitnessCenter fitnessCenter = new FitnessCenter();
+            fitnessCenter.InitializeMembers();
             bool isActiveLoop = true;
 
             while (isActiveLoop)
             {
                 DisplayMenu();
-                int userChoice = GetUserChoice();
+                int userChoice = fitnessCenter.GetUserChoice("Choose and option: ");
                 switch (userChoice)
                 {
                     case 1:
                         {
-                            DisplayMembers(memberList);
+                            Console.Clear();
+                            fitnessCenter.DisplayMembers();
                         }
                         break;
-                    case 2: //Check in
+                    case 2:
                         {
+                            Console.Clear();
+                            fitnessCenter.DisplayMembers();
+                            int memberID = fitnessCenter.GetUserChoice("Enter member ID to check-in: ");
 
+                            Console.Clear();
+                            fitnessCenter.DisplayClubs();
+                            int club = fitnessCenter.GetUserChoice("\nEnter the club to check-in at (1-4): ") - 1;
+
+                            Console.Clear();
+                            fitnessCenter.CheckIn(memberID, club);
                         }
                         break;
-                    case 3:
+                    case 3: //this can be turned into a method return type of tuple
                         {
-                            (int, string) newInfo = Club.GetMemberInfo();
-                            memberList.Add(new SingleClubMember(newInfo.Item1, newInfo.Item2));
-                            //this needs to check if they are multi club or single club
-                            //possibly add third data type of bool to make them multi or single club member
+                            Console.Clear();
+                            Console.Write("Enter members name: ");
+                            string? name = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("Membership type: ");
+                            Console.WriteLine("1. Multi-Club Member");
+                            Console.WriteLine("2. Single Club Member");
+
+                            int memberType = fitnessCenter.GetUserChoice("Please choose the member type(1 or 2): ");
+                            Console.Clear();
+
+                            if(memberType == 1)
+                            {
+                                fitnessCenter.AddMember(new MultiClubMember(fitnessCenter.GenerateRandomID(), name, true, 0));
+                            }
+                            if(memberType == 2)
+                            {
+                                fitnessCenter.DisplayClubs();
+                                int clubChoice = fitnessCenter.GetUserChoice("Choose which club you want to be a member of: ") - 1;
+
+                                fitnessCenter.AddMember(new SingleClubMember(fitnessCenter.GenerateRandomID(), name, false, fitnessCenter.Clubs[clubChoice]));
+
+                            }
                         }
                         break;
                     case 4:
                         {
-                            RemoveMember(); // need to make sure the user enters a number between 1-6
+                            fitnessCenter.RemoveMember();
                         }
                         break;
-                    case 5: //Generate Bill
+                    case 5:
                         {
-
+                            fitnessCenter.GenerateBill();
                         }
                         break;
                     case 6:
@@ -54,36 +78,17 @@ namespace OOP_Project_Fitness_Center
                             isActiveLoop = false;
                         }
                         break;
+                    default:
+                        {
+                            Console.WriteLine("That is not a valid option");
+                        }
+                        break;
                 }
             }
+            Console.WriteLine("Please press enter to exit application...");
+            Console.ReadLine();
         }
-        static void RemoveMember()
-        {
-            DisplayMembers(memberList);
-            int choice = GetUserChoice() - 1;
-
-            memberList.RemoveAt(choice);
-        }
-        static void DisplayMembers(List<Member> members)
-        {
-            for (int i = 0; i < members.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}Name: {members[i].Name} ID: {members[i].ID}");
-            }
-        }
-        static int GetUserChoice()
-        {
-            bool isParsable;
-            int userInput;
-            do
-            {
-                Console.Write("Choose an option: ");
-                isParsable = int.TryParse(Console.ReadLine(), out userInput);
-            }while (!isParsable);
-
-            return userInput;
-        }
-        static void DisplayMenu()
+        public static void DisplayMenu()
         {
             Console.WriteLine("----- Fitness Center Management System -----");
             Console.WriteLine("1. Display Members");
@@ -93,17 +98,5 @@ namespace OOP_Project_Fitness_Center
             Console.WriteLine("5. Generate Bill");
             Console.WriteLine("6. Exit");
         }
-        static void InitializeClubs()
-        {
-            clubList.Add(new Club("Fitness Center 1", "Chicago,IL"));
-            clubList.Add(new Club("Fitness Center 2", "Detroit,MI"));
-            clubList.Add(new Club("Fitness Center 3", "Pittsburgh,PA"));
-            clubList.Add(new Club("Fitness Center 1", "Charlotte,NC"));
-        }
-        static void InitializeMembers()
-        {
-            
-        }
-
     }
 }

@@ -21,17 +21,5 @@ namespace OOP_Project_Fitness_Center
             _name = name;
             _address = address;
         }
-        public static (int,string) GetMemberInfo()
-        {
-            Random rnd = new Random();
-            string? memberName = string.Empty;
-            do
-            {
-                Console.Write("Please enter the new members name: ");
-                memberName = Console.ReadLine();
-            } while (String.IsNullOrEmpty(memberName));
-
-            return (rnd.Next(10000, 100000), memberName);
-        }
     }
 }

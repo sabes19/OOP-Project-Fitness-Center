@@ -31,12 +31,31 @@ namespace OOP_Project_Fitness_Center
             members.Add(new MultiClubMember(GenerateRandomID(), "Jackie", false, 60));
             members.Add(new MultiClubMember(GenerateRandomID(), "Gerald", false, 0));
         }
+        public void DisplayMenu()
+        {
+            Console.WriteLine("----- Fitness Center Management System -----");
+            Console.WriteLine("1. Display Members");
+            Console.WriteLine("2. Check In Member");
+            Console.WriteLine("3. Add Member");
+            Console.WriteLine("4. Remove Member");
+            Console.WriteLine("5. Generate Bill");
+            Console.WriteLine("6. Exit");
+        }
         public void CheckIn(int id, int clubIndex)
         {
-            var member = members.Find(m => m.ID == id);
+            var member = members.Find(m => m.ID == id);           
             Club clubCheckIn = Clubs.ElementAt(clubIndex);
 
-            member.CheckIn(clubCheckIn);
+            if (member == null)
+            {
+                Console.WriteLine("\n------------------------------------------------------------------------");
+                Console.WriteLine($"Member ID ({id}) was not found, please enter a valid member ID.");
+                Console.WriteLine("------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                member.CheckIn(clubCheckIn);
+            }
         }
         public void DisplayMembers()
         {
@@ -66,22 +85,58 @@ namespace OOP_Project_Fitness_Center
                         Console.WriteLine($"{member.Name} is a single club member.\n");
                     }
                 }
-                if (member == null)
+                else
                 {
+                    Console.WriteLine("\n------------------------------------------------------------------------");
                     Console.WriteLine($"Member ID ({memberID}) was not found, please enter a valid member ID.");
+                    Console.WriteLine("------------------------------------------------------------------------\n");
+                    break;
                 }
+            }
+        }
+        public (string, bool) GetUserInfo()
+        {
+            Console.Clear();
+            string? name = string.Empty;
+
+            do
+            {
+                Console.Write("Enter members name: ");
+                name = Console.ReadLine();
+                Console.Clear();
+            } while (string.IsNullOrEmpty(name));
+            
+            int memberType;
+            do
+            {
+                Console.WriteLine("Membership type: ");
+                Console.WriteLine("1. Multi-Club Member");
+                Console.WriteLine("2. Single Club Member");
+
+                memberType = GetUserChoice("Please choose the member type (1 or 2): ");
+                Console.Clear();
+            } while (memberType != 1 && memberType != 2);
+            if (memberType == 1)
+            {
+                return (name, true);
+            }
+            else
+            {
+               return (name, false);
             }
         }
         public void RemoveMember()
         {
             Console.Clear();
+            int choice;
+            do
+            {
+                DisplayMembers();
+                choice = GetUserChoice("Which member do you want to remove: ") - 1;
+                Console.Clear();
+            } while (choice < 0 || choice >= members.Count);
 
-            DisplayMembers();
-            int choice = GetUserChoice("Which member do you want to remove: ") - 1;
-
-            Console.Clear();
-
-            Console.WriteLine($"{members[choice].Name} has been removed.");
+            Console.WriteLine($"\n{members[choice].Name} has been removed.\n");
             members.RemoveAt(choice);
         }
         public void AddMember(Member member)
@@ -98,6 +153,7 @@ namespace OOP_Project_Fitness_Center
             {
                 Console.Write(message);
                 isParsable = int.TryParse(Console.ReadLine(), out userInput);
+                Console.Clear();
             } while (!isParsable);
 
             return userInput;

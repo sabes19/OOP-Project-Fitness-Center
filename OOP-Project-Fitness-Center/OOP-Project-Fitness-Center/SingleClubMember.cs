@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 
 namespace OOP_Project_Fitness_Center
 {
@@ -6,21 +7,35 @@ namespace OOP_Project_Fitness_Center
     {
         private Club _memberClub;
         public Club MemberClub
-        { 
-            get {  return _memberClub; }
+        {
+            get { return _memberClub; }
             set { _memberClub = value; }
         }
-        public SingleClubMember(int ID, string Name, bool isMulticlubMember, Club memberClub) : base(ID, Name, isMulticlubMember)
+        public SingleClubMember(string Name, bool isMulticlubMember, Club memberClub) : base(Name, isMulticlubMember)
         {
             _memberClub = memberClub;
         }
         public override void CheckIn(Club club)
         {
-            if (_memberClub != club)
+            try
             {
-                Console.WriteLine("------------------------------------");
-                Console.WriteLine($"Member has successfully checked in.");
-                Console.WriteLine("------------------------------------");
+                // Check if member's club matches
+                if (_memberClub != club)
+                {
+                    throw new InvalidOperationException($"{Name} cannot check in. {Name} is assigned to another club.");
+                }
+
+                if (_memberClub != club)
+                {
+                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine($"Member has successfully checked in.");
+                    Console.WriteLine("------------------------------------");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                // handle the case when a member checks into the wrong location
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
     }

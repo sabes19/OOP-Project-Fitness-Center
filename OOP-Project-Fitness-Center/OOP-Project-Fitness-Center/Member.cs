@@ -5,10 +5,11 @@ namespace OOP_Project_Fitness_Center
     public abstract class Member
     {
         // properties of the Members class that will be inherited by SingleClubMember and MultiClubMember
+        private Random rand = new Random();
+
         private int _id;
         private string _name;
         private bool _isMulticlubMember;
-
         public int ID               
         {
             get { return _id; }
@@ -27,11 +28,15 @@ namespace OOP_Project_Fitness_Center
         public bool IsCheckedIn { get; set; } = false;   // Is the member checked in at a location, already initialized to not checked in
 
         // constructor
-        public Member(int id, string name, bool isMulticlubMember)
+        public Member(string name, bool isMulticlubMember)
         {
-            _id = id;
+            _id = GenerateRandomID();
             _name = name;
             _isMulticlubMember = isMulticlubMember; 
+        }
+        public int GenerateRandomID()
+        {
+            return rand.Next(10000, 100000);
         }
 
         // method - CheckIn

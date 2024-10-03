@@ -10,7 +10,7 @@ namespace OOP_Project_Fitness_Center
             get {  return _memberPoints; }
             set { _memberPoints = value; }
         }
-        public MultiClubMember(int ID, string name, bool isMulticlubMember, int memberPoints) : base(ID, name, isMulticlubMember)
+        public MultiClubMember(string name, bool isMulticlubMember, int memberPoints) : base(name, isMulticlubMember)
         {
             _memberPoints = memberPoints;
         }

@@ -22,10 +22,8 @@ namespace OOP_Project_Fitness_Center
                 // Check if member's club matches
                 if (_memberClub != club)
                 {
-                    throw new InvalidOperationException($"{Name} cannot check in. {Name} is assigned to another club.");
+                    Console.WriteLine($"{Name} cannot check in. {Name} is assigned to another club.");
                 }
-
-                if (_memberClub != club)
                 {
                     Console.WriteLine("------------------------------------");
                     Console.WriteLine($"Member has successfully checked in.");
